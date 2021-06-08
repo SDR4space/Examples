@@ -49,8 +49,8 @@ var ISS;
 //var satlist =TLE.loadTLE('/tmp/all.txt' ) ;
 
 // Or load TLE from URL
-//var satlist =TLE.loadTLE('https://www.celestrak.com/NORAD/elements/amateur.txt' ) ;
-var satlist =TLE.loadTLE('https://www.celestrak.com/NORAD/elements/weather.txt' ) ;
+var satlist =TLE.loadTLE('https://www.celestrak.com/NORAD/elements/amateur.txt' ) ;
+
 
 print('We have loaded ' + satlist.length + ' sat definitions.');
 
