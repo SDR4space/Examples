@@ -46,3 +46,9 @@ Exact sample rate is: 2000000.052982 Hz
 
 #### rx_DDC.js
 
+This is the best and recommended method to record IQ, using a subband and predefined offset from center frequency.  
+Continuous stream is stored to disk, there is no limit on duration except the free space on HDD.  
+To stop record press CTRL-C. From [sat_receiver example](../sat/sat_receiver) we introduce a way to stop recording using MQTT command to quit recording task.  
+
+*  Output file  
+A FIFO file can be used as output file allowing to retrieve samples for a third-pary application like GNUradio, GQRX.
