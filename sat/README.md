@@ -36,10 +36,13 @@ No running task, ending.
 ```
 
 
-Once done use local file instead of URL to load TLE  from your own scripts.
+Once done use local file instead of URL to load TLE  from your own scripts.  
 
-` var satlist = TLE.loadTLE('/tmp/amateur.txt') ;`
-  
+` var satlist = TLE.loadTLE('/tmp/amateur.txt') ;`  
+
+or using full TLE file :  
+` var satlist = TLE.loadTLE('/tmp/all.txt') ;  `
+
 * simple_ISS.js
 
 Display  ISS sighting opportunities for the next 96 hours (4 days).  
