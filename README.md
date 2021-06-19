@@ -24,7 +24,7 @@ Online documentation is available here : [SDR4space.lite (english)](http://sdr4.
 *  Then run it :  
 
 ``` text
-  /opt/vmbase/sdr4space.light -f ./test.js 
+  /opt/vmbase/sdr4space.light -f ./hello.js 
 ---------------------------------------------------------------------------------
  SDR4.Space Version b1d5b5e3571afd9f5cee649b609507d0ccf0c18e - Build : 20210605
       (c) SDR-Technologies SAS - http://sdr4.space/
@@ -33,7 +33,7 @@ Creating Radio Device factory
  Disk free space : 21.0 % 
  VM starting...
 
- Loading : [./test.js]
+ Loading : [./hello.js]
 
 (boot:0)> hello world!
 
