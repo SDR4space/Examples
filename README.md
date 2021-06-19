@@ -3,7 +3,7 @@ Before running examples from this repository, you have to install [SDR4space.lit
 
 ## SDR4space.lite installation
 
-A featured-limited version of the http://SDR4.space/ embedded software, originally designed for embedded GPU systems.  
+A featured-limited version of the [SDR4space](http://SDR4.space/) embedded software, originally designed for embedded GPU systems.  
 
 This version runs only on x86-64 Linux systems and doest not support GPU.
 
