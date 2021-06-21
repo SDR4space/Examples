@@ -15,7 +15,7 @@ var i = 0;
 
 // Create an array : downloads list
 var liste = [ 
-	{URL: "http://www.amsat.org/amsat/ftp/keps/current/", filename: "nasabare.txt"},
+//	{URL: "http://www.amsat.org/amsat/ftp/keps/current/", filename: "nasabare.txt"},
 	{URL: "http://www.celestrak.com/NORAD/elements/", filename: "amateur.txt"},
 	{URL: "http://www.celestrak.com/NORAD/elements/", filename: "cubesat.txt"},
 	{URL: "http://www.celestrak.com/NORAD/elements/", filename: "galileo.txt"},
