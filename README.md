@@ -51,4 +51,4 @@ No running task, ending.
 - [Replay/process IQ records](./RX/files/)
 - Satellite [TLE and predictions](./sat/)
 - Basic unattended [sat receiver](./sat/sat_receiver) with doppler correction.
-- [GQRX unattended satellite record](./sat/sat_receiver) with doppler correction.
+- [GQRX unattended satellite record](./sat/GQRX) with doppler correction.
