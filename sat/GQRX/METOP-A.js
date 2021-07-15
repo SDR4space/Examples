@@ -7,7 +7,7 @@ var doppler_enable=1;
 var elev_record_start = 4;
 
 // Satellite (NORAD ID)
-var sat_norad="42778";
+var sat_norad="29499";
 //   41105   Elektro-L2 always visible from Europe - 
 //   42778    MAX VALIER SAT  CW 145.960
 //   47438    UVSQSAT
@@ -165,7 +165,7 @@ do {
 
 do {
 	var hour_now = new Date().toLocaleTimeString();
-	look = ISS.getLookAngle( home );
+	look = ISS.getLookAngle( home, 0.5 );
 	var dopp = ISS.getDopplerEstimation( home, 1e9 );
 	currentPosition = ISS.getPosition();
 	print(hour_now + ' - In view ! -->  Elev=' + look.elevation +  ', Az=' + look.azimuth + ', Lat='+currentPosition.latitude + ', Lon=' + currentPosition.longitude + ', Doppler@1GHz= ' + dopp.doppler_avg.toFixed(0) );
@@ -194,7 +194,7 @@ do {
 		} else { print('Doppler task disabled');}
 
   
-	sleep(950);
+	sleep(550);
 } while ( ISS.waitInView( home, 5 ) == true );
 
   

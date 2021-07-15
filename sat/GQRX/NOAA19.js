@@ -7,7 +7,7 @@ var doppler_enable=1;
 var elev_record_start = 4;
 
 // Satellite (NORAD ID)
-var sat_norad="42778";
+var sat_norad="33591";
 //   41105   Elektro-L2 always visible from Europe - 
 //   42778    MAX VALIER SAT  CW 145.960
 //   47438    UVSQSAT
