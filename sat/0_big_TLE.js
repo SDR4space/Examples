@@ -28,8 +28,9 @@ var liste = [
 	{URL: "http://www.celestrak.com/NORAD/elements/", filename: "science.txt"},
 	{URL: "http://www.celestrak.com/NORAD/elements/", filename: "tle-new.txt"},
 	{URL: "http://www.celestrak.com/NORAD/elements/", filename: "visual.txt"},
-	{URL: "http://www.celestrak.com/NORAD/elements/", filename: "weather.txt"}
-]; 
+	{URL: "http://www.celestrak.com/NORAD/elements/", filename: "weather.txt"},
+    {URL: "http://www.celestrak.com/NORAD/elements/", filename: "satnogs.txt"}
+];
 
 function createFullTLE(i) {
          // We download an add each file contents to the final file

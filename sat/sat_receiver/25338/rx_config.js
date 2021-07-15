@@ -1,6 +1,6 @@
 //NOAA15 137.620
-var stream_name = '200k';
-var frequency= 137.62;
+var frequency= 137.500;
 var subband_bw= 48000;
-var offset= 0;
+var offset= 120e3;
 var nb_samples=10e6;
+var demod='M FM 34000';

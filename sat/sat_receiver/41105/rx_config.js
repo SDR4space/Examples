@@ -2,7 +2,7 @@
 var stream_name = '200k';
 var frequency= 466.190;
 var subband_bw= 48000;
-var offset= 0;
+var offset= 15000;
 var nb_samples=3e6;
 //file_format=".cs16";
 

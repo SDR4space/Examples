@@ -50,4 +50,5 @@ No running task, ending.
 - [Plot RF spectrum](./RX/spectrum)
 - [Replay/process IQ records](./RX/files/)
 - Satellite [TLE and predictions](./sat/)
-- Basic unattended [sat receiver](./sat/sat_receiver) with doppler correction
+- Basic unattended [sat receiver](./sat/sat_receiver) with doppler correction.
+- [GQRX unattended satellite record](./sat/sat_receiver) with doppler correction.
