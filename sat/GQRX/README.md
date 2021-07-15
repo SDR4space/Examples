@@ -8,14 +8,13 @@ Perform this task only once, or daily.
 Use script [Examples_SDR4Space/sat/0_big_TLE.js](https://github.com/SDR4space/Examples/blob/main/sat/0_big_TLE.js) to create a TLE file `/tmp/all.txt` resulting of a merge of most common TLEs.
 
 ``` text
-/opt/vmbase/sdrvm -f ../0_big_TLE.js 
+/opt/vmbase/sdr4space.light -f ../0_big_TLE.js 
 ---------------------------------------------------------------------------------
- SDRVM Version v1.0 - Build : 20210604
-      (c) SDR-Technologies SAS - www.sdr-technologies.fr
+ SDR4.Space Version b1d5b5e3571afd9f5cee649b609507d0ccf0c18e - Build : 20210605
+      (c) SDR-Technologies SAS - http://sdr4.space/
 ---------------------------------------------------------------------------------
 Creating Radio Device factory
  Disk free space : 92,9 % 
-Registering SDRNode Rack LCD Panel simulator
  VM starting...
 
  Loading boot task from file : [../0_big_TLE.js]
@@ -123,14 +122,13 @@ var demod='M USB 2800'
 
 #### Log file sample :
 ``` text
-/opt/vmbase/sdrvm -f ./GQRX_doppler.js 
+/opt/vmbase/sdr4space.light -f ./GQRX_doppler.js
 ---------------------------------------------------------------------------------
- SDRVM Version v1.0 - Build : 20210604
-      (c) SDR-Technologies SAS - www.sdr-technologies.fr
+ SDR4.Space Version b1d5b5e3571afd9f5cee649b609507d0ccf0c18e - Build : 20210605
+      (c) SDR-Technologies SAS - http://sdr4.space/
 ---------------------------------------------------------------------------------
 Creating Radio Device factory
  Disk free space : 92,3 % 
-Registering SDRNode Rack LCD Panel simulator
  VM starting...
 
  Loading boot task from file : [./GQRX_doppler.js]
