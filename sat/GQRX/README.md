@@ -99,9 +99,13 @@ This script is configured for a local GQRX (127.0.0.1): edit and adapt file for 
 
 ##### Sat config files location
 Configuration for each sat file is named `rx_config_js` and contain only variables (frequency, offset ...), in a sub-folder named by NORAD-ID.  
-Satellite resources files are common to `Examples_SDR4Space/sat_receiver` example, sharing same variables, and so located in this directory.  
-Config path can be modified by adapting `sats_folder` variable : `var sats_folder='../sat_receiver/';`
 
+Config files are not located in this directory, but in `../sat_receiver/` directory, as shown [here](./files-tree.png) (view from 'sat' directory) !  
+Satellite resources files are common to `Examples_SDR4Space/sat_receiver` example, sharing same variables, and so located in this directory, allowing to maintain unique structure for satellites config files.
+
+Config path can be modified by adapting `sats_folder` variable : `var sats_folder='../sat_receiver/';` 
+  
+Feel free to move config files and adapt path, but we recommend using suggested structure, to get benefit of other scripts ( incl. TLE script `../0_big_TLE.js`)
 
 ##### Variables
 For this ARGOS satellite we apply an offset of 99kHz from center frequency. Modulation is set to (USB/2800Hz).  
