@@ -59,7 +59,7 @@ No running task, ending.
 #### Test GQRX link
 
 By default GQRX is configured to receive commands from localhost (127.0.0.1), port 7356.  
-Remote control settings can be modified from 'Tools/Remote control settings' menu. 
+Remote control settings can be modified from 'Tools/Remote control settings' menu.  
 Enable remote control : 'Tools/Remote control' menu.  
 
 * Local connection :  
@@ -75,11 +75,12 @@ f
 ```
 
 * To control GQRX from remote computer, you need to allow the computer connection to GRQX.  
-Example, to allow 192.168.1.113 managing GQRX, go to 'Tools/Remote computer settings' and add '::ffff:192.168.1.113'  
+Example, to allow 192.168.1.113 managing GQRX, go to 'Tools/Remote computer settings' and add `::ffff:192.168.1.113` to list.
 Have also a look to your firewall settings, to allow incoming command on TCP port 7356  
-Once tested edit and adapt IP-adress for ` msg.sh` script (see below).
+
 
 * Then try to send the a command using `msg.sh` script :   
+This script is configured for a local GQRX (127.0.0.1): edit and adapt file for remote GQRX control.  
 `./msg.sh 'F 132456679'`  
 
 
@@ -87,14 +88,14 @@ Once tested edit and adapt IP-adress for ` msg.sh` script (see below).
 
 
 #### Prepare and run
-
+* Install `socat` tool/package.
 * Edit `GQRX_doppler.js`, set `sat_norad` variable to the satellite you want to listen. 
 * Record will start when satellites reaches values defined by `elev_record_start` variable.  
 * Run `/opt/vmbase/sdrvm -f ./GQRX_doppler.js' to start unattended mode.  
 * Make sure GQRX is running and remote control enabled!  
 * Once you are happy with the record, you can save `GQRX_doppler.js` to your favorite satellite name, for future use, example `UVSQSAT.js`.  
 
-#### Sat config file
+#### Notes about config file
 
 ##### Sat config files location
 Configuration for each sat file is named `rx_config_js` and contain only variables (frequency, offset ...), in a sub-folder named by NORAD-ID.  
