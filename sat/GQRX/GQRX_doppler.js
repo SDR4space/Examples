@@ -201,7 +201,7 @@ do {
 // Stop GQRX audio record  
 print("STOP RECORD !");
 send_GQRXmsg('LOS');
-sleep(500);
+sleep(950);
 print("End recorder task");
 
 
