@@ -10,9 +10,12 @@ var fifo_from_rx = Queues.create( 'input');
 var fifo_to_file = Queues.create( 'outut');
 var IQBlock = new IQData('iq');
 var samples = 0 ;
-
+IO.fdelete('/tmp/rx.cf32');
 // open RX 
+
+// var rx = Soapy.makeDevice( {'query' : 'driver=plutosdr' });
 var rx = Soapy.makeDevice( {'query' : 'driver=rtlsdr' });
+
 if( typeof rx != 'object' ) {
 	print('no radio ?');
 	exit();
