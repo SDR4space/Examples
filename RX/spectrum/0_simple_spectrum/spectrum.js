@@ -23,8 +23,8 @@ for (var a=12 ; a < spectrum.spectrum.length-12; a++) {
 IO.fappend('/tmp/spectrum.csv',value);
 
 var c = {
-    'command' : '/usr/bin/gnuplot', 
-    'args' : ['./spectrum.gnu']
+    'command' : 'gnuplot', 
+    'args' : ['spectrum.gnu']
 } ;
 
 var res = System.exec( c );
