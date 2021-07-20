@@ -27,6 +27,14 @@ for (var a=128 ; a < spectrum.spectrum.length-128; a++) {
 
 }
 IO.fappend('/tmp/spectrum.csv',value);
+
+/* DragonOS
+var c = {
+    'command' : '/usr/bin/gnuplot-x11', 
+    'args' : ['-p','./spectrum.gnu']
+} ;
+*/
+
 var c = {
     'command' : '/usr/bin/gnuplot-qt', 
     'args' : ['-p', './spectrum.gnu']
