@@ -10,6 +10,33 @@ By using correct extension for your IQ files, sdr4space.light app is able to han
 
 
 More on IQ files/objects :  http://sdr4.space/doc/#savetofile
+
+### Cut (shorten) IQ file
+
+
+* Script `file_cut.js` :
+
+This example loads an existing CF32 file `/tmp/rx.cf32` at 250kS SR and shorten the duration from original file (10 seconds) creating a CS16 and CF32 file, duration 4 seconds.  
+As result we get two files : `/tmp/short.cf32` and `/tmp/short.cs16`  
+
+![file_cut](./file_cut.png)
+
+- Note: to create the input IQ file '/tmp/rx.cf32' run the following script which records a 250kHz subband, duration 10 seconds on 105.5 MHz from a RTLSDR device @1MSps  
+
+```
+IO.fdelete('/tmp/rx.cf32');
+var rx = Soapy.makeDevice({'query' : 'driver=rtlsdr' }) ;
+rx.setRxCenterFreq( 105.2 );
+rx.setGain( 65 );
+rx.setRxSampleRate(1000000);
+var freq = rx.getRxCenterFreq();
+print("Freq : ",freq.toFixed(3)," MHz");
+print("SR : ",rx.getRxSampleRate().toFixed(0));
+var IQ = rx.captureSubBand( 2.5e6, 300e3, 250e3 );
+IQ.dump();
+IQ.saveToFile('/tmp/rx.cf32') ;
+```
+
 ### Convert IQ file
 
 Convert CS16 to CF32 file using sdr4space.lite is simple as renaming a file (IQ object) from .cs16 to .cf32 !
