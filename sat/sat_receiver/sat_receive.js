@@ -45,6 +45,16 @@ recording=0;
 var mysat;
 var ISS;
 
+
+if( !IO.fread('/tmp/all.txt') ) {
+    print('TLE file not found !');
+    print('Try to download TLE files (0_big_TLE.js)');
+    load('../0_big_TLE.js');
+    // we can even do something like this :
+    // load('https://raw.githubusercontent.com/SDR4space/Examples/main/sat/0_big_TLE.js');
+}
+
+
 // Load TLE local file (use 0_big_TLE.js)
 var satlist =TLE.loadTLE('/tmp/all.txt' ) ;
 
