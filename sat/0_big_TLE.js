@@ -29,12 +29,11 @@ var liste = [
 	{URL: "http://www.celestrak.com/NORAD/elements/", filename: "tle-new.txt"},
 	{URL: "http://www.celestrak.com/NORAD/elements/", filename: "visual.txt"},
 	{URL: "http://www.celestrak.com/NORAD/elements/", filename: "weather.txt"},
-    {URL: "http://www.celestrak.com/NORAD/elements/", filename: "satnogs.txt"}
+	{URL: "http://www.celestrak.com/NORAD/elements/", filename: "satnogs.txt"}
 ];
 
 function createFullTLE(i) {
          // We download an add each file contents to the final file
-        IO.fdelete('./' + liste[i].filename);
 	satlist = IO.HTTPGet(liste[i].URL + liste[i].filename, true);
 	IO.fappend('/tmp/all.txt', satlist);
 	IO.fappend('/tmp/' + liste[i].filename, satlist);
@@ -44,6 +43,7 @@ function createFullTLE(i) {
 // Adding each downloaded file to final file
 for (i = 0; i < liste.length; i++)
 {
+        IO.fdelete('/tmp/' + liste[i].filename);
 	print(i.toFixed(0), "   ", liste[i].URL, liste[i].filename);
 	createFullTLE(i);
 } 
