@@ -16,14 +16,14 @@ More on IQ files/objects :  http://sdr4.space/doc/#savetofile
 
 * Script `file_cut.js` :
 
-This example loads an existing CF32 file `/tmp/rx.cf32` at 250kS SR and shorten the duration from original file (10 seconds) creating a CS16 and CF32 file, duration 4 seconds.  
+This example loads an existing CF32 file `/tmp/rx.cf32` at 250kS SR and shorten the duration from original file (10 seconds) to 4 seconds, creating a CS16 and CF32 file,  
 As result we get two files : `/tmp/short.cf32` and `/tmp/short.cs16`  
 
 ![file_cut](./file_cut.png)
 
 - Note: to create the input IQ file '/tmp/rx.cf32' run the following script which records a 250kHz subband, duration 10 seconds on 105.5 MHz from a RTLSDR device @1MSps  
 
-```
+``` javascript
 IO.fdelete('/tmp/rx.cf32');
 var rx = Soapy.makeDevice({'query' : 'driver=rtlsdr' }) ;
 rx.setRxCenterFreq( 105.2 );
