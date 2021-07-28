@@ -12,7 +12,7 @@ rx.setRxCenterFreq( freq );
 print("Freq : ",rx.getRxCenterFreq().toFixed(0)," MHz");
 //print("SR : ",rx.getRxSampleRate().toFixed(0));
 
-var IQ = rx.Capture( 10000000 );
+var IQ = rx.Capture( 1000000 );
 var spectrum = IQ.getPowerSpectrum( 1024 ) ; 
 //peaks = spectrum.peaks ;
 //print('Peaks object:' + JSON.stringify( peaks ));
@@ -27,21 +27,13 @@ for (var a=128 ; a < spectrum.spectrum.length-128; a++) {
 
 }
 IO.fappend('/tmp/spectrum.csv',value);
-
-/* DragonOS
 var c = {
-    'command' : '/usr/bin/gnuplot-x11', 
+    'command' : '/usr/bin/gnuplot-x11',
     'args' : ['-p','./spectrum.gnu']
-} ;
-*/
-
-var c = {
-    'command' : '/usr/bin/gnuplot-qt', 
-    'args' : ['-p', './spectrum.gnu']
 } ;
 
 var res = System.exec( c );
-//print( JSON.stringify( res ));
+print( JSON.stringify( res ));
 
 
 
