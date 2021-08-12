@@ -75,7 +75,7 @@ Script :  [4_rx_DDC_silence.js](./4_rx_DDC_silence.js)
 
 Do not record IQ if the signal level is below the defined trigger level.  
 
-We are using the same script as before, however we introduce a `trigger` variable to decide if we keep collected block  samples ot throw them to nowhere depnding on the signal level.
+We are using the same script as before, however we introduce a `trigger` variable to decide if we keep collected block  samples or throw them to nowhere depending on the signal level.
 
 
 On the example below we removed all 'silent parts' of the signal.  
