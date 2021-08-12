@@ -1,14 +1,18 @@
-### Capture and store IQ records
+## Capture and store IQ records
+ 
 
-Three differents captures method :
-* rx_capture.js: capture the whole band
-* rx_capture_suddband.js : capture a subband (portion of the spectrum)
-* rx_DDC.js : capture a subband (continuous stream)
+Three differents captures method :   
 
-Note: the first two methods are easy to implement. However final IQ file is available only at the end of the the record sequence. Record time duration is set through the samples number to record (provided as parameter)  and heavy relying on free memory.
+*   rx.Capture(): capture the whole band  (fixed duration, whole spectrum) 
+*  rx.captureSubBand() : capture a subband (fixed duration, portion of the spectrum)  
+*  DDC() : capture a subband (continuous stream, portion of spectrum)  
 
-#### rx_capture.js
+Note: the first two methods are easy to implement. However final IQ file is available only at the end of the  record sequence.  
+Record time duration is set through the samples number to record (provided as parameter)  and heavy relying on free memory.
 
+### rx_capture.js
+
+Srcipt : [1_rx_capture.js](./1_rx_capture.js)
 
 * Basic capture, record 8M samples at 2MSps (duration 4seconds)
 
@@ -30,7 +34,8 @@ Exact sample rate is: 2000000.052982 Hz
 
 
 
-#### rx_capture_suddband.js
+### rx_capture_subband
+Script : [2_rx_capture_subband.js](2_rx_capture_subband.js)
 
 * Record a subband of IQ samples to disk, bandwidth 48kHz, duration 40 seconds.
 
@@ -50,13 +55,41 @@ Exact sample rate is: 2000000.052982 Hz
 (boot:0)> File size: 64000000
 ```
 
+### DDC
 #### rx_DDC.js
+Script : [3_rx_DDC.js](3_rx_DDC.js)  
+
 
 This is the best and recommended method to record IQ, using a subband and predefined offset from center frequency.  
 Continuous stream is stored to disk, there is no limit on duration except the free space on HDD.  
 To stop record press CTRL-C.  
   
-From [sat_receiver example](../sat/sat_receiver) we introduce a way to stop recording using MQTT command to quit recording task.  
+From [sat_receiver example](../sat/sat_receiver) we also introduce a way to stop recording using MQTT command, to quit recording task.  
 
 *  Output file  
-A FIFO file can be used as output file allowing to retrieve samples in real time for a third-pary application like GNUradio, GQRX.
+A FIFO file can be used as output file allowing to retrieve samples in real time for a third-party application like GNUradio, GQRX.
+
+#### rx_DDC_silence.js
+
+Script :  [4_rx_DDC_silence.js](./4_rx_DDC_silence.js)
+
+Do not record IQ if the signal level is below the defined trigger level.  
+
+We are using the same script as before, however we introduce a `trigger` variable to decide if we keep collected block  samples ot throw them to nowhere depnding on the signal level.
+
+
+On the example below we removed all 'silent parts' of the signal.  
+Output file contains only the signal (POCSAG frames)  for a total duration of 5 seconds from a 2 minutes capture.
+![silence](./files/sdr4space_squelch.png)
+
+*Note*:   
+- unused part of IQ file is recorded as separate file '/tmp/null.cf32'. You have to delete it by yourself.  
+- as alternative using and consuming FIFO in background works :
+
+```
+rm /tmp/null.cf32  
+mkfifo /tmp/null.cf32
+cat /tmp/null.cf32 > /dev/null &
+/opt/vmbase -f ./4_rx_DDC_silence.js
+```
+
