@@ -75,10 +75,23 @@ Script :  [4_rx_DDC_silence.js](./4_rx_DDC_silence.js)
 
 Do not record IQ if the signal level is below the defined trigger level.  
 
-We are using the same script as before, however we introduce a `trigger` variable to decide if we keep collected block  samples or throw them to nowhere depending on the signal level.
+We are using the same script as before, however we introduce a `trigger` variable to decide if we keep collected block  samples or throw them to nowhere depending on the signal level (the value is provided by `.rms()`).
 
+```
+	var trigger=-42;
+ if  (ifdata.rms() > trigger ) {
+                print(ifdata.rms().toFixed(2),'  *** Recording ... ');
+		              fifo_to_file.enqueue( ifdata );			             // Record IQ samples to /tmp/rx.cf32
+		              ifdata = slice.read();                     				// read more
+                } else {
+                print(ifdata.rms().toFixed(2),'  *** No signal ! ');
+                fifo_to_null.enqueue( ifdata );                 // Drop IQ samples to /tmp/null.cf32
+                ifdata = slice.read();                          // read more
+		}
 
-On the example below we removed all 'silent parts' of the signal.  
+```
+
+On the example shown below we removed all 'silent parts' of the signal.  
 Output file contains only the signal (POCSAG frames)  for a total duration of 5 seconds from a 2 minutes capture.
 ![silence](./files/sdr4space_squelch.png)
 
@@ -90,6 +103,6 @@ Output file contains only the signal (POCSAG frames)  for a total duration of 5 
 rm /tmp/null.cf32  
 mkfifo /tmp/null.cf32
 cat /tmp/null.cf32 > /dev/null &
-/opt/vmbase -f ./4_rx_DDC_silence.js
+./SDR4space-lite.AppImage -f ./4_rx_DDC_silence.js
 ```
 
