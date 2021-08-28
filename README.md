@@ -13,6 +13,11 @@ Please follow guide here to install : [SDR4space.lite installation ](https://git
 
 Online documentation is available here : [SDR4space.lite (english)](http://sdr4.space/doc/) 
 
+## Tutorial
+
+Thanks to Aaron from DragonOS team for this Youtube tutorial on sdr4space.lite basic examples :  
+https://www.youtube.com/watch?v=BxOK9Gzz7hg
+
 ## running / testing
 
 * Create a test file, for example hello.js :  
