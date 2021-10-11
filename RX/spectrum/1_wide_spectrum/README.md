@@ -1,4 +1,4 @@
-#### JS scripts
+### JS scripts
 
 From basic to advanced, we are providing  3 examples scripts :
 
@@ -15,7 +15,7 @@ Will perform a detection phase by the same way, then send data to grafana. No pl
 You need to have a minimalist knowledge on how to implement grafana/influx, however our friend [@cemaxecuter](https://twitter.com/cemaxecuter) from [DragonOS team](https://sourceforge.net/projects/dragonos-focal/) is providing great Youtube videao as introduction : TBD
 
 
-#### GNUPLOT notes
+### GNUPLOT notes
 
 - Please take a minute to check the rendering method for your plots.
 - If you are using the AppImage version of sdr4space.lite,  please note gnuplot-qt is not working (use gnuplot-x11 instead)  
@@ -43,4 +43,4 @@ To get the output to a PNG file instead, comment the above line and uncomment  f
 `set term png size 1200,500`  
 `set output "/tmp/plot.png`  
 
-##### Grafana 
+### Grafana 
