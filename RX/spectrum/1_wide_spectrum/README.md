@@ -13,8 +13,9 @@ This is a very basic detection, which can generate false positive sin case of st
 
 ##### 3_spectrum_detect_grafana.js
 Will perform a detection phase by the same way, then send data to grafana. No plot.  
-You need to have a minimalist knowledge on how to implement grafana/influx, however our friend [@cemaxecuter](https://twitter.com/cemaxecuter) from [DragonOS team](https://sourceforge.net/projects/dragonos-focal/) is providing great Youtube videao as introduction : TBD
-
+  
+You need to have a minimalist knowledge on how to implement grafana/influx, however our friend [@cemaxecuter](https://twitter.com/cemaxecuter) from [DragonOS team](https://sourceforge.net/projects/dragonos-focal/) is providing great Youtube video as introduction : https://www.youtube.com/watch?v=3xzODzRBuRA
+Thank you so much for this very educational tutorial starting from scratch !
 
 ### GNUPLOT notes
 
