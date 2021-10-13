@@ -46,7 +46,7 @@ To get the output to a PNG file instead, comment the above line and uncomment  f
 ### Grafana 
 #### Send data to grafana
 
-From the {3_spectrum_detect_grafana.js` file we are using IO.HTTPPost command to send our record to InfluxDB :  
+From the `3_spectrum_detect_grafana.js` file we are using IO.HTTPPost command to send our record to InfluxDB :  
 
 ```` javascript
 for (var k=0 ; k < detected.frequency.length; k++) {
