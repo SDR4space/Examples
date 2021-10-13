@@ -6,7 +6,9 @@ Script will perform a quick conversion from JSON to CSV before sending data to G
 
 ### Requirements
 
-Install `gnuplot-qt gnuplot` packages.
+Depending of your distribution install one of these packages : *gnuplot*, *gnuplot-x11*, *gnuplot*, *gnuplot-nox*, *gnuplot-qt*.  
+*gnuplot-qt* is not working with our AppImage version (use gnuplot-x11 instead) !
+
 
 ### Basic spectrum
 
@@ -18,5 +20,5 @@ Once done, use [IO.FTPSend()](http://sdr4.space/doc/#ioftpsend) or [IO.SFTPsend(
 
 ### Wide spectrum
 
-This example will run successive captures in a frequency range (and perform some basic cropping), then launch gnuplot-qt GUI to display resulting plot.  
+This example will run successive captures in a frequency range (and perform some basic cropping), then launch gnuplot-x11 GUI to display resulting plot.  
 ![qt_spectrum](qt_spectrum.png)
