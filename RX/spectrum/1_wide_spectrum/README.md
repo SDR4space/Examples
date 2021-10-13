@@ -25,7 +25,7 @@ You need to have a minimalist knowledge on how to implement grafana/influx, howe
 
 - Have a look at the end of each .js script and adapt GNUplot path and executable to your own settings :
 
-````
+```` javascript
 var c = {
     'command' : '/usr/bin/gnuplot-qt', 
     'args' : ['-p', './spectrum.gnu']
@@ -41,6 +41,27 @@ We are using gnuplot-x11 in the provided examples, with a direct rendering on th
 
 To get the output to a PNG file instead, comment the above line and uncomment  following lines from spectrum.gnu file:  
 `set term png size 1200,500`  
-`set output "/tmp/plot.png`  
+`set output "/tmp/plot.png"`  
 
 ### Grafana 
+#### Send data to grafana
+
+From the {3_spectrum_detect_grafana.js` file we are using IO.HTTPPost command to send our record to InfluxDB :  
+
+```` javascript
+for (var k=0 ; k < detected.frequency.length; k++) {
+ 	influx_header="WBFM,host=" + hostname +",freq=" + detected.frequency[k];
+	var params =influx_header + " level=" + detected.value[k] + '\n';
+	print(params);
+	IO.HTTPPost('http://'+dbserver+'/write?db=WBFM', params);  
+}
+````
+We write our records to the 'WBFM' database on the InfluxServer.  
+Measurement name is also 'WBFM, used tags are 'host' and 'freq', the only key value is 'level'  
+
+The result is similar to a wget query formatted as follow :  
+
+`wget 'http://server_ip:8086:/write?db=WBFM' --post-data "WBFM,host=DragonSDR,freq=105.5 level=-46.4"`
+
+
+Refer to this page to get more information on influx API : https://docs.influxdata.com/influxdb/v1.7/guides/writing_data/
