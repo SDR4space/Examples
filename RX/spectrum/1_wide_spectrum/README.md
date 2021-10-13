@@ -4,7 +4,8 @@ From basic to advanced, we are providing  3 examples scripts :
 
 ##### 1_spectrum.js
 A basic wideband spectrum.    
-Adapt samplerate to your device (RTLSDR by default)  
+Adapt samplerate to your device (RTLSDR by default).  
+If you own a plutoSDR comment the RTLSDR parameters and uncomment the PlutoSDR section to get a quicker result.  
 
 ##### 2_spectrum_detect.js
 Will plot a wideband spectrum, and try to detect signals above noise groud + trigger level defined by a variable.  
