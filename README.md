@@ -7,11 +7,11 @@ A featured-limited version of the [SDR4space](http://SDR4.space/) embedded softw
 
 This version runs only on x86-64 Linux systems and doest not support GPU.
 
-Please follow guide here to install : [SDR4space.lite installation ](https://github.com/SDR4space/FreeVersion )
+Please follow guide here to install : [SDR4space.lite installation ](http://sdrvm.sdrtechnologies.fr/releases/ )
 
 ## Documentation 
 
-Online documentation is available here : [SDR4space.lite (english)](http://sdr4.space/doc/) 
+Online documentation is available here : [SDRVM doc (english)](http://sdrvm.sdrtechnologies.fr/) 
 
 ## Tutorial
 
