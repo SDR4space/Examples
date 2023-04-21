@@ -1,0 +1,7 @@
+//var rx = Soapy.makeDevice({'query' : 'driver=plutosdr' }) ;
+//var rx = Soapy.makeDevice({'query' : 'driver=rtlsdr' }) ;
+var fstart=[400];
+var fend=[406];
+var csv_file=['/tmp/400-406_20220322.csv'];
+var sr=2048e3;
+var fft=1024;
