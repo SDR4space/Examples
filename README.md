@@ -9,7 +9,7 @@
 
 
 #### Documentation (commands reference) : http://sdrvm.sdrtechnologies.fr/
-
+#### To get the latest PC or RPi VMBASE executable, go to our 'Download and Install page' :   http://sdrvm.sdrtechnologies.fr/releases/#download-and-test
 
 **Our thanks to CemaXecuter, author of DragonOS distribution for the time spent testing, experimenting with our tool and ensuring integration into DragonOS. His help is invaluable to us.**
 
