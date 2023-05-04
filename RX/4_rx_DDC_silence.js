@@ -3,7 +3,7 @@
 Output file : /tmp/rx.cf32 
 End by pressing CTRL-C
 */
-var trigger= -42;
+var trigger= -50;
 
 
 if ( !IO.fread('settings.js')) {
@@ -53,7 +53,7 @@ rx.setRxCenterFreq( default_freq );
 // create output file
 print('create out queue');
 fifo_to_file.writeToFile(dest_folder + 'rx.cf32');
-fifo_to_null.writeToFiledest_folder + 'null.cf32');
+fifo_to_null.writeToFile(dest_folder + 'null.cf32');
 print('connect queue to receiver');
 // engage streaming
 if( !fifo_from_rx.ReadFromRx( rx ) ) {
@@ -63,7 +63,7 @@ if( !fifo_from_rx.ReadFromRx( rx ) ) {
 
 var slice = new DDC('one');
 slice.setOutBandwidth(24e3); // 24 kHz output
-slice.setCenter( 176e3 ) ; // receive 24kHz centered at +176 kHz from center
+slice.setCenter( 207e3 ) ; // receive 24kHz centered at +176 kHz from center
 
 print('starting rx process');
 while( fifo_from_rx.isFromRx() ) { // if we have something in the input
