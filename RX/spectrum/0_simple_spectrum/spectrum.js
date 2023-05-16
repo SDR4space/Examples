@@ -13,6 +13,8 @@ var rx = Soapy.makeDevice({'query' : sdr_device }) ;
 rx.setRxCenterFreq( default_freq );
 rx.setGain( 65 );
 rx.setRxSampleRate(sample_rate);
+rx.setRxBandwidth(sdr_bandwidth);
+
 var value='';
 print("Freq : ",rx.getRxCenterFreq().toFixed(0)," MHz");
 print("SR : ",rx.getRxSampleRate().toFixed(0));

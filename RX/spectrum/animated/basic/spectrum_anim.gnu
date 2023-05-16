@@ -1,7 +1,7 @@
 #GUI output
 set term x11 size 800,500
 # output to file
-set yrange [-80:-50]
+set yrange [-110:-50]
 #set term png size 1200,500
 #set autoscale
 #set output "/tmp/spectrum.png"

@@ -1,4 +1,10 @@
-var sample_rate=5e6;
+// sample rate
+var sample_rate=2e6;
+
+// For specific devices, set RF bandwidth, usually same as samplerate
+//rx.setRxBandwidth(2e6);
+var sdr_bandwidth=2e6;
+
 
 // Define computer hostname
 var hostname="DragonOS";

@@ -44,7 +44,7 @@ if( !rx.isValid()) {
 
 if( rx.isAvailable() ) {
    // set sample rate
-   if( rx.setRxSampleRate( 2e6 )) {
+   if( rx.setRxSampleRate( sample_rate )) {
       print('Sample rate changed');
    }
 } else {
@@ -53,6 +53,8 @@ if( rx.isAvailable() ) {
 
 rx.setRxCenterFreq( 466 );
 rx.setGain=45;
+rx.setRxBandwidth(sdr_bandwidth);
+
 // create output file
 print('create out queue');
 //fifo_to_file.writeToFile(dest_folder + 'DDC.wav');

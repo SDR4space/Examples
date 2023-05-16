@@ -18,6 +18,8 @@ var freq=default_freq;
 
 rx.setGain( 60 );
 rx.setRxSampleRate(sample_rate);
+rx.setRxBandwidth(sdr_bandwidth);
+
 var value="";
 for (var freq = fmin; freq < fmax+((sample_rate*0.75)/1e6); freq += (sample_rate*0.75)/1e6) {
 rx.setRxCenterFreq( freq );
