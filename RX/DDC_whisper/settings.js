@@ -1,6 +1,6 @@
 
-//var whisper_path='/usr/src/whisper.cpp/';
-var whisper_path='/home/eric/SDRT/whisper.cpp/';
+var whisper_path='/usr/src/whisper.cpp/';
+//var whisper_path='/home/eric/SDRT/whisper.cpp/';
 
 var whisper_model='ggml-tiny.en.bin';
 
