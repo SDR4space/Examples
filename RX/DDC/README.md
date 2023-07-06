@@ -1,13 +1,13 @@
 #### 5_DDC_MQTT_RECORD.js  
 
 
-From a DDC channel, only keep IQ sample with a signal above the tigger level.
+From a DDC channel, only keep IQ samples with a signal above the trigger level.
 Send level to MQTT.
  
 Provided example records ISM devices on 433.920 (sensors, keys).
 
 
-![433.jpg](../anim/multispectrum/433.jpg)
+![433.jpg](./433.jpg)
 
 #### basic_DDC_recorder.js  
 
@@ -17,7 +17,7 @@ Continuous recording of IQ through a DDC. Press CTRL-C to end recording.
 
 #### DDC_MQTT.js  
 
-Send the RMS level to MQTT of a DDC channel
+Send the RMS level of a DDC channel to MQTT.  
  
 
 
