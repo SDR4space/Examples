@@ -45,4 +45,4 @@ Use 'ADSB' as name and '127.0.0.1:8086' as HTTP URL
 --> Left bar : **Dashboards / Manage / import**  
 Click 'Test and save'.  
 
-![grafana_view](adsb_grafana.jpg)
+![grafana_view](ADSB_grafana.jpg)
