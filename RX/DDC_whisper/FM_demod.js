@@ -5,7 +5,7 @@ print('Start FM_DEMOD');
 var whisper_box = new SharedMap('dictionnary_1');
 
 
-var input_samplerate=16000;
+var input_samplerate=16000; //matches line 88 of DDC_MQTT_FM_whisper.js "slice.setOutBandwidth(250e3); // 16 kHz output"
 var output_samplerate=16000;
 
 
@@ -13,7 +13,7 @@ var IQ = new IQData('');
 //var IQ;
 var samples = 0 ;
 var filename=argv(0);
-var SRinput= {'sample_rate' : 16000};
+var SRinput= {'sample_rate' : input_samplerate};
 
 if( !IQ.loadFromFile( filename ) ) {
 //if( !IQ.loadFromFile( filename, SRinput ) ) {

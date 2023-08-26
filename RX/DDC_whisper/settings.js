@@ -1,8 +1,9 @@
 
-var whisper_path='/usr/src/whisper.cpp/';
+var whisper_path='/home/dev3/Documents/whisper.cpp/';
 //var whisper_path='/home/eric/SDRT/whisper.cpp/';
 
-var whisper_model='ggml-tiny.en.bin';
+var whisper_model='ggml-base.en.bin';
+var recorder_limit = 100
 
 
 // SDR 
@@ -12,7 +13,7 @@ var whisper_model='ggml-tiny.en.bin';
 if (argc()==1) {
 		var listening_frequency=parseFloat(argv(0));
 		} else {
-			var listening_frequency = 435.050;   // MHZ --> adapt
+			var listening_frequency = 162.550;   // MHZ --> adapt
 			//var listening_frequency = 145.700; 
 			}
 
@@ -29,7 +30,7 @@ var offset_center = 250e3; // offset from center,
 var rx_gain=35;
 
 
-var threshold= 5; // trigger level over noise level to start record
+var threshold= -5; // trigger level over noise level to start record
 
 // MQTT
 // Get messages :
@@ -45,4 +46,4 @@ var mqtt_server = '127.0.0.1';
 var dest_folder='/tmp/'
 
 // Add more messages (signal level , whisper stdout + stderr)
-var debug=false;   // true/false
+var debug = false;   // true/false
