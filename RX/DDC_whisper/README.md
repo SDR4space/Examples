@@ -102,3 +102,7 @@ F_435.051_20221209-144646.cf32.wav   --> NBFM demodulated audio
 - After the baseline step (define noise floor by taking 20 measurements), send a short transmission by pressing the PTT. Check if you get recording files in /tmp.  
 - If OK, go away from few meters to avoid saturation, press PTT then speak clearly. The best is to start with a short message containing numbers or letters in international code. Then continue with a short sentence.    
 - Wait few seconds to get the result on screen. Decoding take some time !   
+
+## TODO
+
+- [ ] publish decoded text to MQTT and then use your MQTT to Kibana to generate a word cloud
