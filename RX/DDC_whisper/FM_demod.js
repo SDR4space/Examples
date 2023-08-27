@@ -7,7 +7,8 @@ var whisper_box = new SharedMap('dictionnary_1');
 var IQ = new IQData('');
 //var IQ;
 var samples = 0 ;
-var filename=argv(0);
+var filename = argv(0);
+var nbfm_bandwidth = argv(1)
 var SRinput= {'sample_rate' : nbfm_bandwidth};
 
 if( !IQ.loadFromFile( filename ) ) {

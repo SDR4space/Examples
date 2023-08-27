@@ -132,7 +132,7 @@ while( fifo_from_rx.isFromRx()) { // if we have something in the input
                 if (recording == 1) {
                     print('End record');
                     IO.fdelete('/tmp/null.cs8');
-                    createTask('FM_demod.js', new_file);
+                    createTask('FM_demod.js', new_file, nbfm_bandwidth);
                 }
                 if (debug) {
                     print(iflevel.toFixed(2), '  *** No signal !  - Trigger : ', trigger.toFixed(2));
