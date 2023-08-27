@@ -1,51 +1,38 @@
-var counter = 0;
 // Record and NBFM demodulate VHF signal, the pipe it to whisper.cpp
-
-
 
 include('settings.js');
 
-
 if (use_mqtt) {
 	var stations_rms = {
-	'host': mqtt_server,
-	'login': '',
-	'pass' : '',
-	'topic': 'SDR/station_1/rms',
-	'mode' : 'write' 
-		} ;
-
-
+        'host': mqtt_server,
+        'login': '',
+        'pass' : '',
+        'topic': 'SDR/station_1/rms',
+        'mode' : 'write' 
+	};
 
 	print('Create MQTT : SDR/station_1/rms');
 	MBoxCreate('rms1',stations_rms);
+}
 
-	}
-
+var counter = 0; //keep track of the number of times the recording loops
 var whisper_box = new SharedMap('dictionnary_1');
 
 IO.fdelete('/tmp/tasks.txt');
 IO.fwrite('/tmp/tasks.txt','{"task": [],"file": []}');
 
-var whispid=createTask('start_whisper.js');
+var whispid = createTask('start_whisper.js');
 // In case of trouble, launch `start_whisper_solo.js` from a separate window, and comment above line.
-
-
-
 
 // create working queues and objects
 var fifo_from_rx = Queues.create( 'input');
-//var fifo_to_file = Queues.create( 'output');
 var fifo_to_null = Queues.create( 'tonull');
 var IQBlock = new IQData('iq');
 var samples = 0 ;
-//IO.fdelete('/tmp/rx.wav');
-//IO.fdelete('/tmp/null.cs8');
-
 
 // open RX 
-//var rx = Soapy.makeDevice( {'query' : 'driver=bladerf' });
-var rx = Soapy.makeDevice( {'query' : 'driver=rtlsdr' });
+var driver = "driver=" + driver_type
+var rx = Soapy.makeDevice({'query' : driver});
 
 if( typeof rx != 'object' ) {
 	print('no radio ?');
@@ -62,31 +49,28 @@ if( rx.isAvailable() ) {
    if( rx.setRxSampleRate( 2.4e6 )) {
       print('Sample rate changed');
    }
-} else {
+} 
+else {
    print('device is already used, we do not change Sampling Rate');
 }
 
-print(center_freq)
 rx.setRxCenterFreq( center_freq );
 rx.setGain(rx_gain);
 
-
 // create output file
 print('create out queue');
-//fifo_to_file.writeToFile('/tmp/rx.wav');
 fifo_to_null.writeToFile('/tmp/null.cs8');
 print('connect queue to receiver');
-
 
 // engage streaming
 if( !fifo_from_rx.ReadFromRx( rx ) ) {
 	print('Cannot stream from rx');
 	exit();
 }
-var recording=0;
+
+var recording = 0;
 var slice = new DDC('one');
-slice.setOutBandwidth(16e3); // 16 kHz output
-print(offset_center)
+slice.setOutBandwidth(nbfm_bandwidth);
 slice.setCenter( offset_center ) ; // shift frequency from center
 
 print('Listening on ',  (rx.getRxCenterFreq() + (offset_center/1e6)).toFixed(3), ' MHz');
@@ -94,30 +78,25 @@ print('FC = ' ,rx.getRxCenterFreq(), '  --- offset =  ', (offset_center/1e6).toF
 print('starting rx process (baseline - 20 blocks)');
 var baseline=0;
 for (var a=0; a< 20; a++) {
-
-   if( IQBlock.readFromQueue( fifo_from_rx )) {	 // load samples from input queue into IQBlock object
-//		slice.setCenter(shiftcenter) ;
-       slice.write( IQBlock );	
-
+    if( IQBlock.readFromQueue( fifo_from_rx )) {	 // load samples from input queue into IQBlock object
+        slice.write( IQBlock );	
 		var ifdata = slice.read();
 		while( ifdata.getLength() > 0 ) {
-			//print('Writing ...', ifdata.getLength());
 			print(ifdata.rms().toFixed(2),'  *** Create baseline ... ', a);
 			if (a > 0 ) {
-				baseline += parseFloat(ifdata.rms().toFixed(2));
-				if (use_mqtt) {MBoxPost('rms1', ifdata.rms()); }
-				}
+                baseline += parseFloat(ifdata.rms().toFixed(2));
+				if (use_mqtt) {
+                    MBoxPost('rms1', ifdata.rms());
+                }
+			}
 			fifo_to_null.enqueue( ifdata ); 		// write the samples in the output queue
 			ifdata = slice.read();				// read more
-			
-				}	
-			} else { 
-				fifo_from_rx.stop();
-					}
+		}	
+	}
+    else { 
+		fifo_from_rx.stop();
+	}
 }
-
-
-
 
 trigger=(baseline/19)+ threshold;
 print('Baseline level on last 20 blocks :', baseline/19, ' -  set trigger level : ' , trigger );
@@ -147,7 +126,8 @@ while( fifo_from_rx.isFromRx()) { // if we have something in the input
                 ifdata.appendToFile(new_file);
                 ifdata = slice.read();
                 recording = 1;
-            } else {
+            } 
+            else {
 				counter = 0;
                 if (recording == 1) {
                     print('End record');
