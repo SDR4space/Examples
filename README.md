@@ -231,4 +231,23 @@ DDCBank examples (2 channels and more) are requiring a registered license.
 - For mobile operation, [capture RF spectrum and log GPS position](./RX/spectrum/GPS) into a CSV file.  
 
 
+## Troubleshooting
 
+### Cannot Open Shared Object Error When Running sdrvm
+
+Example error output:
+
+```
+user@user:~/$ sdrvm
+sdrvm: error while loading shared libraries: libSoapySDR.so.0.8: cannot open shared object file: No such file or directory 
+```
+
+Solution:
+
+```
+sudo find / -name libSoapySDR.so.0.8
+# note the path where the shared object is found. Do not include the actual shared object file in the next command, only its absolute path
+export LD_LIBRARY_PATH=/path/to/shared/object/directory:$LD_LIBRARY_PATH
+```
+
+If you don't have the shared object, you'll likely have to install Soapy: http://sdrvm.sdrtechnologies.fr/releases/#upgrading-soapysdr-to-v08
