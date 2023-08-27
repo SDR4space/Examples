@@ -121,12 +121,23 @@ F_435.051_20221209-144646.cf32.wav   --> NBFM demodulated audio
 
 ### Testing
 
+**Note**: The FM decoder only works on NarrowBand FM transmissions.
+
+#### Walkie Talkie
+
 - Set your walkie-talkie to 435.050 MHz NFM, with very low power (the minimum).  
 - Launch `DDC_MQTT_FM_whisper.js` script  
 - After the baseline step (define noise floor by taking 20 measurements), send a short transmission by pressing the PTT. Check if you get recording files in /tmp.  
 - If OK, go away from few meters to avoid saturation, press PTT then speak clearly. The best is to start with a short message containing numbers or letters in international code. Then continue with a short sentence.    
-- Wait few seconds to get the result on screen. Decoding may take some time!   
+- Wait few seconds to get the result on screen. Decoding may take some time!
+
+#### Weather Station
+
+1. Find the weather station near you: https://www.weather.gov/nwr/station_search
+2. Note the frequency and configure it in your `settings.json`
+3. Adjust the `recorder_limit` variable in `settings.json` to tune how long you want to capture the weather station before decoding
 
 ## TODO
 
-- [x] publish decoded text to MQTT and then use your MQTT to Kibana to generate a word cloud
+- [x] publish decoded text to MQTT and then use your MQTT to Kibana to generate a word cloud.
+    - See [word cloud in Kibana](#word-cloud-in-kibana) section above for solution
