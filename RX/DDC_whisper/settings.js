@@ -37,7 +37,7 @@ var threshold= -5; // trigger level over noise level to start record
 // mosquitto_sub -h <mqtt_server_ip> -t SDR/station_1/rms will display received level on terminal.
 // transcoded messages from WAV : mosquitto_sub -h <mqtt_server_ip> -t SDR/station_1/whisper
 
-var use_mqtt = false;   //  true/false
+var use_mqtt = true;   //  true/false
 var mqtt_server = '127.0.0.1';
 
 
